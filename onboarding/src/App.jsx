@@ -45,7 +45,10 @@ function App() {
 
   const postUser = (newUser) => {
     axios.post(URL, newUser)
-      .then(res => setUsers([res.data, ...users]))
+      .then(res => {
+        console.log('POST response: ', res)
+        setUsers([res.data, ...users])
+      })
       .catch(err => console.log(err))
       .finally(() => setFormValues(initialFormValues))
   }
@@ -59,7 +62,9 @@ function App() {
   useEffect(() => {
     formSchema.isValid(formValues)
       .then(valid => {
-        setDisabled(!valid)
+        if (formValues.tos) {
+          setDisabled(!valid)
+        }
       })
   }, [formValues])
 
@@ -82,7 +87,7 @@ function App() {
   const onCheckboxChange = e => {
     const { name } = e.target;
     const { checked } = e.target;
-
+    
     setFormValues({ ...formValues, [name]: checked });
   }
 
@@ -107,6 +112,7 @@ function App() {
         disabled={disabled}
         values={formValues}
         onSubmit={onSubmit}
+        errors={formErrors}
       />
       <div></div>
       <UserList users={users} />

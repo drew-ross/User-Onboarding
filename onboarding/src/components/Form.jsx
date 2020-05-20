@@ -2,10 +2,17 @@ import React from 'react';
 
 const Form = (props) => {
 
-    const { onInputChange, onCheckboxChange, values, disabled, onSubmit } = props;
+    const { onInputChange, onCheckboxChange, values, disabled, onSubmit, errors } = props;
 
     return (
         <form onSubmit={onSubmit}>
+            <div>
+                <p>{errors.first_name}</p>
+                <p>{errors.last_name}</p>
+                <p>{errors.email}</p>
+                <p>{errors.password}</p>
+                <p>{errors.tos}</p>
+            </div>
             <label>First Name:
                 <input
                     name='first_name'
