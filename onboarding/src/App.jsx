@@ -3,6 +3,7 @@ import './App.css';
 import Form from './components/Form'
 import axios from 'axios'
 import * as yup from 'yup'
+import UserList from './components/UserList'
 
 //Initial Values
 const initialFormValues = {
@@ -34,7 +35,10 @@ function App() {
   const getUsers = () => {
     axios.get(URL)
       .then(res => {
-        console.log(res.data.data);
+        setUsers(res.data.data);
+      })
+      .catch(err => {
+        console.log(err);
       })
   }
 
@@ -67,6 +71,7 @@ function App() {
         values={formValues}
         onSubmit={onSubmit}
       />
+      <UserList users={users}/>
     </div>
   );
 }
