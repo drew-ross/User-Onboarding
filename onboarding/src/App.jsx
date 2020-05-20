@@ -62,9 +62,7 @@ function App() {
   useEffect(() => {
     formSchema.isValid(formValues)
       .then(valid => {
-        if (formValues.tos) {
-          setDisabled(!valid)
-        }
+        setDisabled(!valid)
       })
   }, [formValues])
 
@@ -87,7 +85,7 @@ function App() {
   const onCheckboxChange = e => {
     const { name } = e.target;
     const { checked } = e.target;
-    
+
     setFormValues({ ...formValues, [name]: checked });
   }
 
