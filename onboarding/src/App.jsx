@@ -26,7 +26,7 @@ function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
-  
+
   const getUsers = () => {
     //axios
   }
@@ -35,9 +35,24 @@ function App() {
     //call getUsers
   }, []);
 
+  const onInputChange = e => {
+    const { name } = e.target;
+    const { value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  }
+
+  const onCheckboxChange = e => {
+    const { name } = e.target;
+    const { checked } = e.target;
+    setFormValues({ ...formValues, [name]: checked });
+  }
+
   return (
     <div className="App">
-      <Form />
+      <Form
+        onInputChange={onInputChange}
+        onCheckboxChange={onCheckboxChange}
+        values={formValues} />
     </div>
   );
 }
