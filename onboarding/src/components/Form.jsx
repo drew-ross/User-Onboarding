@@ -2,10 +2,10 @@ import React from 'react';
 
 const Form = (props) => {
 
-    const { onInputChange, onCheckboxChange, values } = props;
+    const { onInputChange, onCheckboxChange, values, disabled, onSubmit } = props;
 
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <label>Name:
                 <input
                     name='username'
@@ -41,7 +41,8 @@ const Form = (props) => {
                     onChange={onCheckboxChange}
                 />
             </label>
-
+            <br />
+            <button disabled={disabled}>Submit</button>
         </form>
     )
 }

@@ -47,12 +47,19 @@ function App() {
     setFormValues({ ...formValues, [name]: checked });
   }
 
+  const onSubmit = e => {
+
+  }
+
   return (
     <div className="App">
       <Form
         onInputChange={onInputChange}
         onCheckboxChange={onCheckboxChange}
-        values={formValues} />
+        disabled={disabled}
+        values={formValues}
+        onSubmit={onSubmit}
+        />
     </div>
   );
 }
