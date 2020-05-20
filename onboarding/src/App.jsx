@@ -6,19 +6,22 @@ import * as yup from 'yup'
 
 //Initial Values
 const initialFormValues = {
-  username: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
   tos: false,
 }
 const initialFormErrors = {
-  username: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
   tos: ''
 }
 const initialUsers = []
 const initialDisabled = true;
+const URL = 'https://reqres.in/api/users';
 
 //
 function App() {
@@ -26,13 +29,17 @@ function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const [users, setUsers] = useState([]);
 
   const getUsers = () => {
-    //axios
+    axios.get(URL)
+      .then(res => {
+        console.log(res.data.data);
+      })
   }
 
   useEffect(() => {
-    //call getUsers
+    getUsers();
   }, []);
 
   const onInputChange = e => {
@@ -59,7 +66,7 @@ function App() {
         disabled={disabled}
         values={formValues}
         onSubmit={onSubmit}
-        />
+      />
     </div>
   );
 }

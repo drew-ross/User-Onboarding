@@ -6,11 +6,20 @@ const Form = (props) => {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>Name:
+            <label>First Name:
                 <input
-                    name='username'
+                    name='first_name'
                     type='text'
-                    value={values.username}
+                    value={values.first_name}
+                    onChange={onInputChange}
+                />
+            </label>
+            <br />
+            <label>Last Name:
+                <input
+                    name='last_name'
+                    type='text'
+                    value={values.last_name}
                     onChange={onInputChange}
                 />
             </label>
