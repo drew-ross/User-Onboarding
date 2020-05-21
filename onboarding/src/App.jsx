@@ -97,8 +97,6 @@ function App() {
       })
 
     setFormValues({ ...formValues, [name]: checked });
-
-    setFormValues({ ...formValues, [name]: checked });
   }
 
   const onSubmit = e => {
