@@ -87,6 +87,17 @@ function App() {
     const { name } = e.target;
     const { checked } = e.target;
 
+    yup.reach(formSchema, name)
+      .validate(checked)
+      .then(valid => {
+        setFormErrors({ ...formErrors, [name]: '' })
+      })
+      .catch(err => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] })
+      })
+
+    setFormValues({ ...formValues, [name]: checked });
+
     setFormValues({ ...formValues, [name]: checked });
   }
 
