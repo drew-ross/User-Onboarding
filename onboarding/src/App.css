@@ -1,5 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+}
+
+h2 {
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.form .container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form input {
+  width: 65%;
+  margin-bottom: 1rem;
+}
+
+.errors {
+  width: 100%;
+  font-size: .8rem;
+  color: red;
+}
+
+.errors p {
+  margin: .2rem 0;
+}
+
+.flex-container {
+  width: 70%;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.left, .right {
+  width: 40%;
+  box-shadow: 0 0 2px;
+  padding: 2rem;
+}
+
+button {
+  padding: .4rem 1rem;
+  background: white;
+  box-shadow: 0 0 2px;
+  border: none;
+  margin: 1rem auto;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .App-logo {

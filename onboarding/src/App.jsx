@@ -116,16 +116,22 @@ function App() {
 
   return (
     <div className="App">
-      <Form
-        onInputChange={onInputChange}
-        onCheckboxChange={onCheckboxChange}
-        disabled={disabled}
-        values={formValues}
-        onSubmit={onSubmit}
-        errors={formErrors}
-      />
-      <div></div>
-      <UserList users={users} />
+      <h1>User Onboarding</h1>
+      <div className="flex-container">
+        <div className="left">
+          <Form
+            onInputChange={onInputChange}
+            onCheckboxChange={onCheckboxChange}
+            disabled={disabled}
+            values={formValues}
+            onSubmit={onSubmit}
+            errors={formErrors}
+          />
+        </div>
+        <div className="right">
+          <UserList className='right' users={users} />
+        </div>
+      </div>
     </div>
   );
 }
