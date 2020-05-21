@@ -21,7 +21,8 @@ const initialFormErrors = {
   password: '',
   tos: ''
 }
-const initialUsers = []
+
+
 const initialDisabled = true;
 const URL = 'https://reqres.in/api/users';
 
